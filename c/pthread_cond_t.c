@@ -10,6 +10,8 @@
 pthread_mutex_t g_mutex;
 pthread_cond_t g_cond;
 char g_buf[BUFFER_SIZE];
+int g_write_flag = 0;
+int g_read_flag = 0;
 
 void *thread_func_producer(void *arg);
 void *thread_func_consumer(void *arg);
@@ -37,15 +39,13 @@ int main(void)
         printf("Create producer failed.\n");
         exit(EXIT_FAILURE);
     }
-
+    
     ret = pthread_create(&thrd_consumer, NULL, thread_func_consumer, NULL);
     if(ret != 0) {
         printf("Create consumer failed.\n");
         exit(EXIT_FAILURE);
     }
-    
-    sleep(1);
-    
+
     ret = pthread_join(thrd_producer, NULL);
     if(ret != 0) {
         printf("Join producer failed.\n");
@@ -79,12 +79,23 @@ void *thread_func_producer(void *arg)
     
     printf("Producer running...\n");
     
-    pthread_mutex_lock(&g_mutex);
-    for(i = 0; i < BUFFER_SIZE; i++) {
-        g_buf[i] = (char)('A' + i);
+    while(1) {
+        if(g_read_flag == 1) {
+            break;
+        }
+        
+        pthread_mutex_lock(&g_mutex);
+        if(g_write_flag == 0) {
+            for(i = 0; i < BUFFER_SIZE; i++) {
+              g_buf[i] = (char)('A' + i);
+            }
+            g_write_flag = 1;
+        }
+        pthread_cond_signal(&g_cond);
+        pthread_mutex_unlock(&g_mutex);
+        
+        sleep(1);
     }
-    pthread_cond_signal(&g_cond);
-    pthread_mutex_unlock(&g_mutex);
     
     printf("Producer exit.\n");
     
@@ -104,6 +115,7 @@ void *thread_func_consumer(void *arg)
     }
     printf("\n");
     pthread_mutex_unlock(&g_mutex);
+    g_read_flag = 1;
     
     printf("consumer exit.\n");
     
