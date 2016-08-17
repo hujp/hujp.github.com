@@ -1,6 +1,6 @@
 markdown: kramdown
 highlighter: pygments
-permalink: /posts/:title.html
+permalink: /5am/posts/:title.html
 excerpt_separator: "<!-- more -->"
 
 github: panxw
@@ -16,7 +16,7 @@ all_categories: [
 ["linux", "Linux相关","/posts/linux.html"],
 ["read", "读书笔记","/posts/read.html"], 
 ["other", "杂记","/posts/other.html"],
-["about", "关于","/about.html"]
+["about", "关于","/posts/about.html"]
 ]
 
 paginate: 8
