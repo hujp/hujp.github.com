@@ -1,6 +1,6 @@
 markdown: kramdown
 highlighter: pygments
-permalink: /5am/posts/:title.html
+permalink: /posts/:title.html
 excerpt_separator: "<!-- more -->"
 
 github: panxw
