@@ -26,7 +26,7 @@ int main(void)
     //p3 = (char*)memcpy(p2, p1, 10);
     //printf("p2=%s\np3=%s", p2, p3);
     
-    p2 = NULL;
-    p3 = NULL;
+    //p2 = NULL;
+    //p3 = NULL;
     exit(EXIT_SUCCESS);
 }
