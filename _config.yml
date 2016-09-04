@@ -1,17 +1,18 @@
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 permalink: /posts/:title.html
 excerpt_separator: "<!-- more -->"
 
 baseurl: /
 
 all_categories: [
-["android", "Android开发","/posts/android.html"], 
-["program", "软件编程","/posts/program.html"],
-["web", "Web建站","/posts/web.html"], 
-["linux", "Linux相关","/posts/linux.html"],
-["read", "读书笔记","/posts/read.html"], 
-["other", "杂记","/posts/other.html"],
+#["android", "Android开发","/posts/android.html"], 
+#["program", "软件编程","/posts/program.html"],
+#["web", "Web建站","/posts/web.html"], 
+#["linux", "Linux相关","/posts/linux.html"],
+#["read", "读书笔记","/posts/read.html"], 
+#["other", "杂记","/posts/other.html"],
+["programming", "编程语言","/posts/programming.html"],
 ["about", "关于","/posts/about.html"]
 ]
 
