@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "2019.09.27"
+date: 2019-09-27 08:50:15 +0800   
+---
+kw_oom
+kw_passwd
+kw_ttyS0
+
+发生oom到oom杀死进程需要时间，如果这段时间内系统由于其他原因（例如软件锁或者硬件锁）发生panic，那么oom就没用了。
+
+除非是创建用户后第一次执行passwd，否则旧密码都会被记录到/etc/security/opasswd文件中。这是pam_pwhistory模块的功能。
+
+系统命令行参数console=ttyS0控制的是将内核的打印显示到串口，即使没有这个参数，程序也可以往ttyS0写内容。
+
+serial-getty@ttyS0.service这个服务提供的是串口登录功能，即使不开启这个服务，外设也可以从串口读取数据。
