@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "2019.09.29"
+date: 2019-09-29 08:50:15 +0800  
+---
+
+kw_ping
+kw_arping
+kw_tcpdump
+
+即使是同一子网内的IP也可能不通，因为可以有某种方式使得一个IP不可用。
+
+arping -i eth0 <IP>
+可以测试网口也地址所在网口之间的物理连通性。但即使能通也不意味着ping能通。
+
+tcpdump -i eth0 host <host1> and host <host2> -p icmp
+抓包确认主机之间包的收发情况。当互相不通时，可以确认出是谁的问题。
