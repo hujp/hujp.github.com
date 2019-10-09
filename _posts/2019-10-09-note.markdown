@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "2019.10.09"
+date: 2019-10-09 08:50:15 +0800   
+---
+
+kw_selinux
+kw_kickstart
+kw_cracklib
+kw_df
+
+启动rpcbind可能因selinux失败（非必现），需要关闭selinux。
+
+在使用kickstart自动化安装的时候，如果遇到问题就需要修改ks文件。某些情况下直接修改内存中的/run/install/ks.cfg达不到目的，可以使用安装光盘的troubleshooting模式将/mnt/install/repo/目录下的ks文件复制到/mnt/sysimage/目录下修改，然后再重启安装并修改安装菜单中inst.ks为hd:sda1:/ks.cfg类似的路径。在将ks文件复制到硬盘之前，可能需要使用fdisk和mkfs创建分区和文件系统，使用mount挂载分区到/mnt/sysimage。
+
+在正常系统中可用的脚本不一定适用于ks文件的%post脚本，因为在系统安装并首次启动之前有些文件是我们看不到的或者是和正常看到的还不一样。
+
+cracklib-unpacker cracklib-format cracklib-packer可以用来更新密码字典。
+
+df命令的结果取决于执行命令的用户对具体的挂载点是否有可执行权限。
