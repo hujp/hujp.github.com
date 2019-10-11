@@ -9,7 +9,6 @@ kw_raid
 kw_mdadm
 kw_timezone
 
-2019.10.11
-ks自动安装可能无法处理磁盘上存在raid配置的情况。lsblk命令查看，如果分区的TYPE显示为raid，说明磁盘原先配置过软raid，一种可能的情况是图形化安装自定义分区的时候选择的分区格式是raid（其他格式还有standard，lvm，swap）。此时，可以进入安装shell，使用mdadm --stop和mdadm --remove清除raid配置，然后重启机器再安装。
+ks自动安装可能无法处理磁盘上存在raid配置的情况。lsblk命令查看，如果分区的TYPE显示为raid，说明磁盘原先配置过软raid，一种可能的情况是图形化安装自定义分区的时候选择的分区格式是raid（其他格式还有standard，lvm，swap）。此时，可以进入安装shell，使用mdadm --stop和mdadm --zerosuperblock清除raid配置，然后重启机器再安装。
 
 timedatectl --set-timezone UTC可以将系统时区设置为UTC。
