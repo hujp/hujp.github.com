@@ -1,0 +1,15 @@
+---
+layout: post
+title:  "2019.10.12"
+date: 2019-10-12 08:50:15 +0800   
+---
+
+kw_losetup
+kw_mount
+kw_qemu
+kw_lvm
+kw_guestfs
+
+losetup --list可以查看loop设备的源文件路径，比如如果loop0的源是/dev/sr0表示挂载的是光驱；如果挂载的是iso镜像文件，则就会显示iso文件的路径。其实，losetup更重要的用法是配合fdisk/qemu-nbd/mount/lvm实现挂载虚拟磁盘文件，比如img（raw）和qcow2格式的虚拟磁盘。注意挂载虚拟磁盘中的lvm分区时要求当前系统没有同名的逻辑卷组。
+
+guestfs-tool工具包含的guestmount命令可以更方便地挂载虚拟磁盘。其底层应该也是用到了上面的各个技术。
