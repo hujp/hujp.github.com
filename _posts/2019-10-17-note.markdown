@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "2019.10.17"
+date: 2019-10-17 08:50:15 +0800   
+---
+
+kw_grub
+kw_boot
+
+grub菜单如果只有exit命令，那么BIOS（？）将从下一个启动项重新启动。比如第一启动项是光盘，光盘的grub配置中添加boot from local disk菜单且内容为exit，那么执行此菜单将继续从第二启动项即本地硬盘启动。
