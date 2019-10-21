@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "2019.10.18"
+date: 2019-10-18 08:50:15 +0800   
+---
+kw_ipv6
+kw_ssh
+
+ipv6在刚设置的瞬间是不可用的，此时使用ip命令查看，会看到一个tentative状态。tentative状态消失后，IP地址方才可用。
+
+网络脚本激活ipv6地址时，确保global类地址tentative状态消失后脚本才退出，而site（fec0打头）或local类地址（fe80打头）没有此保证，服务使用此类地址需自己设置一定的延时或重试。
+
+sshd_config脚本参数ListenAddress用于监听服务所在节点指定的IP地址。例如，只在ipv4地址上启用监听，或只监听多块网卡其中一块的IP地址。
