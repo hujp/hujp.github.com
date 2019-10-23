@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "2019.10.23"
+date: 2019-10-23 08:50:15 +0000   
+---
+
+kw_chmod
+kw_yum
+
+chmod修改文件的权限需要用户拥有上级目录的执行权限。比如，chmod 640 ~/testdir -R命令在testdir目录下有文件或子目录时会报错，因为当testdir目录本身首先被修改为640之后，用户即失去了执行权限。此时可以分两步进行，chmod 750 ~/testdir; chmod 640 ~/testdir/*。
+
+yum grouplist命令可以查看repo中定义的groups（实际上是源repodata目录中的xml定义的）。而yum group info可以查看包含的包和子group。考试可能会需要用到的是yum group install “Virtualization Host”，yum group install x11，yum group install gnome-desktop。
