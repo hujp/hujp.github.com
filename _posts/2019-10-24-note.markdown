@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "2019.10.24"
+date: 2019-10-24 08:50:15 +0000   
+---
+
+/etc/sysconfig/network-scripts目录下网卡配置文件中的拼写错误可能会使网卡工作不正常，并且难以发现。比如将BRIDGE拼写成BRIDEG。
+
+/etc/lvm/backup/目录下逻辑卷组备份文件中pv的id并不是/dev/disk/by-uuid目录下的id，而是/dev/disk/by-id/目录下以lvm-pv-uuid开头的去掉前缀以后的id。当vg损坏之后，通常需要先pvcreate，再修改vg备份文件中的id字段，再vgcfgrestore。但是，vgcfgrestore仅能恢复卷组和逻辑分区等，并不能恢复被损坏的文件系统。修复损坏的文件系统需要使用fsck或e2fsck，视文件系统损坏的情况修复可能成功或失败，实际上如果是超级快之类的损坏那么修复成功的可能性是比较小的，要谨慎。另外使用e2fsck -b修复时，注意-b选项的参数并不是固定的，可能和分区的类型或大小有关系，这里没有深究。
