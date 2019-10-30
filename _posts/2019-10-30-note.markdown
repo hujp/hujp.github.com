@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "2019.10.30"
+date: 2019-10-30 08:50:15 +0000   
+---
+
+kw_vgchange
+kw_fsck
+
+rd.break模式下系统只会自动挂载boot，根和swap分区，其他的逻辑分区甚至无法识别。执行/sysroot/sbin/vgscan也没有用。此时，执行/sysroot/sbin/vgchange -ay <vg_name>可以激活其他的逻辑分区，就能够在/dev/mapper目录下找到逻辑分区的符号链接了。可以对逻辑分区进行文件系统修复、挂载等操作。
