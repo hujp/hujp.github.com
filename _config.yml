@@ -29,7 +29,8 @@ twitter_username: none
 github_username:  hujp
 
 # Build settings
-theme: minima
+#theme: minima
+theme: jekyll-theme-hacker 
 plugins:
   - jekyll-feed
 
