@@ -5,5 +5,5 @@
 layout: home
 ---
 
-* Bookmarks <https://hujp-bookmarks.readthedocs.io/zh_CN/lastest/>
+* Bookmarks <https://hujp-bookmarks.readthedocs.io/zh_CN/lastest/index.html>
 * Devops logs <https://hujp.github.io/devops-logs/index.html>
